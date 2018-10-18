@@ -1,7 +1,7 @@
 import SimpleSchema  from 'simpl-schema';
 import { Accounts } from 'meteor/accounts-base';
 
-Accounts.validateNewUser((user) => {
+export const validateNewUser = (user) => {
   const email = user.emails[0].address;
 
   new SimpleSchema({
@@ -9,9 +9,11 @@ Accounts.validateNewUser((user) => {
       type: String,
       regEx: SimpleSchema.RegEx.email
     }
-  }).validate({email: email});
+  }).validate({email});
 
   return true;
-});
+};
 
+
+Accounts.validateNewUser(validateNewUser);
 

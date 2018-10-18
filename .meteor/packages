@@ -21,4 +21,5 @@ accounts-password@1.5.1
 react-meteor-data
 session@1.1.7
 fourseven:scss
+coffeescript
 meteortesting:mocha

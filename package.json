@@ -10,6 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.54",
     "autopublish": "0.0.8",
+    "babel-cli": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "history": "^4.7.2",
     "meteor-node-stubs": "^0.4.1",
@@ -30,5 +31,8 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "expect": "^23.6.0"
   }
 }

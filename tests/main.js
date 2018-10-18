@@ -1,4 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import assert from "assert";
+import {} from './users.test';
 
 describe("notes", function () {
   it("package.json has correct name", async function () {
@@ -6,7 +8,11 @@ describe("notes", function () {
     assert.strictEqual(name, "notes");
   });
 
-  if (Meteor.isClient) {
+  it("runs another test", async function() {
+    assert.strictEqual(true, true);
+  });
+
+  if (!Meteor.isServer) {
     it("client is not server", function () {
       assert.strictEqual(Meteor.isServer, false);
     });
