@@ -27,7 +27,9 @@ if (Meteor.isServer) {
         ]
       };
 
-      expect(validateNewUser(testUser)).toThrow();
+      expect(function () {
+        validateNewUser(testUser);
+      }).toThrow();
     });
   });
 }

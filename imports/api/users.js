@@ -7,7 +7,7 @@ export const validateNewUser = (user) => {
   new SimpleSchema({
     email: {
       type: String,
-      regEx: SimpleSchema.RegEx.email
+      regEx: SimpleSchema.RegEx.Email
     }
   }).validate({email});
 
