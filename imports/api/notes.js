@@ -22,6 +22,19 @@ Meteor.methods({
       userId: this.userId,
       updatedAt: moment().valueOf()
     })
+  },
+  'notes.remove': function(_id) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authenticated');
+    }
+
+    const note = Notes.findOne({_id});
+
+    if (this.userId !== note.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    return Notes.remove({_id});
   }
 });
 
