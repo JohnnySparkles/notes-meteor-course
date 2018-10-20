@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import assert from "assert";
 import {} from './users.test';
+import {} from './notes.test';
 
 describe("notes", function () {
   it("package.json has correct name", async function () {
