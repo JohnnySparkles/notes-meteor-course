@@ -46,6 +46,10 @@ Meteor.methods({
   },
   'notes.update': function(_id, updates) {
     if (!this.userId) {
+      throw new Meteor.Error('not-authenticated');
+    }
+
+    if (this.userId != Notes.findOne({_id}).userId) {
       throw new Meteor.Error('not-authorized');
     }
 

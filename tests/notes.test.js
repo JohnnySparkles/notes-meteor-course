@@ -69,15 +69,31 @@ if (Meteor.isServer) {
       const newTitle = "This is the new title";
       expect(() => {
         Meteor.server.method_handlers['notes.update'].apply({
-        userId: noteOne.userId
-      },
-      [
-        noteOne._id,
-        {
-          title: newTitle,
-          name: "Johnnie"
-        }
-      ])}).toThrow();
+            userId: noteOne.userId
+          },
+          [
+            noteOne._id,
+            {
+              title: newTitle,
+              name: "Johnnie"
+            }
+          ])}).toThrow();
+    });
+
+    it('should throw an error if the user doesn\'t own the note', function() {
+      const newTitle = "This is the new title";
+      expect(() => {
+        Meteor.server.method_handlers['notes.update'].apply({
+          userId: 'aUserId2',
+        },
+        [
+          noteOne._id,
+          {
+            title: newTitle,
+          }
+        ])
+      }).toThrow();
+      expect(Notes.findOne({_id: noteOne._id}).title).toBe(noteOne.title);
     });
   });
 }
