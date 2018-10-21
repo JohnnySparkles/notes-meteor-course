@@ -64,6 +64,21 @@ if (Meteor.isServer) {
             body: noteOne.body
       });
     });
+
+    it('should throw error if extra updates', function() {
+      const newTitle = "This is the new title";
+      expect(() => {
+        Meteor.server.method_handlers['notes.update'].apply({
+        userId: noteOne.userId
+      },
+      [
+        noteOne._id,
+        {
+          title: newTitle,
+          name: "Johnnie"
+        }
+      ])}).toThrow();
+    });
   });
 }
 
