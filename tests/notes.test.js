@@ -95,6 +95,32 @@ if (Meteor.isServer) {
       }).toThrow();
       expect(Notes.findOne({_id: noteOne._id}).title).toBe(noteOne.title);
     });
+
+    it('should not update the note if unauthenticated', function() {
+      expect(() => {
+        Meteor.server.method_handlers['notes.update'].apply({},
+        [
+          noteOne._id,
+          {
+            title: "A new title"
+          }
+        ])
+      }).toThrow();
+    });
+
+    it('should not update note if an invalid _id', function() {
+      expect(() => {
+        Meteor.server.method_handlers['notes.update'].apply({
+          userId: noteOne.userId
+        }
+        [
+          'aBadId1',
+          {
+            title: "A new title"
+          }
+        ])
+      }).toThrow();
+    });
   });
 }
 
