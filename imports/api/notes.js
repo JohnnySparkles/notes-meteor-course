@@ -74,8 +74,6 @@ Meteor.methods({
       ...updates
     });
 
-    console.log('updates:', updates);
-    console.log('now', moment().valueOf());
     Notes.update(_id, {
       $set: {
         updatedAt: moment().valueOf(),

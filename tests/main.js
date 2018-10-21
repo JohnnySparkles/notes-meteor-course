@@ -1,7 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import assert from "assert";
-import {} from './users.test';
-import {} from './notes.test';
+import {} from './enzyme-configuration.js';
+import {} from './api/users.test';
+import {} from './api/notes.test';
+import {} from './ui/PrivateHeader.test';
 
 describe("notes", function () {
   it("package.json has correct name", async function () {

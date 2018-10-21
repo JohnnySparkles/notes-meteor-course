@@ -1,6 +1,6 @@
 import expect from 'expect';
 import { Meteor } from 'meteor/meteor';
-import { Notes } from './../imports/api/notes';
+import { Notes } from '../../imports/api/notes';
 
 if (Meteor.isServer) {
   describe('notes', function () {
@@ -65,7 +65,6 @@ if (Meteor.isServer) {
       ]);
 
       const note = Notes.findOne({_id: noteOne._id});
-      console.log(note);
       expect(note.updatedAt).toBeGreaterThan(noteOne.updatedAt);
       expect(note).toMatchObject({
             title,
