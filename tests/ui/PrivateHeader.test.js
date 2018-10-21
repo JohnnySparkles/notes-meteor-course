@@ -18,6 +18,9 @@ if (Meteor.isClient) {
 
       expect(wrapper.find('h1').text()).toBe(title);
     });
+
+    it('should call the function', function() {
+    });
   });
 }
 
