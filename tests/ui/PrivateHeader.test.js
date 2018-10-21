@@ -11,6 +11,13 @@ if (Meteor.isClient) {
 
       expect(wrapper.find('button').text()).toBe('Logout');
     });
+
+    it('should set the title', function() {
+      const title = "This is the title";
+      const wrapper = mount(<PrivateHeader title={title}/>);
+
+      expect(wrapper.find('h1').text()).toBe(title);
+    });
   });
 }
 
