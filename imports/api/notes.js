@@ -7,6 +7,9 @@ export const Notes = new Mongo.Collection('notes');
 
 if (Meteor.isServer) {
   Meteor.publish('notes', function() {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
     return Notes.find({userId: this.userId});
   })
 }
