@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 
-
-const PrivateHeader = (props) => {
+export const PrivateHeader = (props) => {
   return (
     <div className="header">
       <div className="header__content">
@@ -20,5 +20,9 @@ PrivateHeader.propTypes = {
   handleLogout: PropTypes.func.isRequired
 };
 
-export default PrivateHeader;
+export default withTracker(({}) => {
+  return {
+    handleLogout: () => Accounts.logout()
+  };
+})(PrivateHeader);
 
