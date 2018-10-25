@@ -12,6 +12,7 @@
     "autopublish": "0.0.8",
     "babel-cli": "^6.26.0",
     "babel-runtime": "^6.26.0",
+    "chai": "^4.2.0",
     "history": "^4.7.2",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
@@ -20,7 +21,8 @@
     "react-dom": "^16.4.1",
     "react-meteor-data": "^0.2.11",
     "react-router-dom": "^4.3.1",
-    "simpl-schema": "^1.5.3"
+    "simpl-schema": "^1.5.3",
+    "sinon": "^7.0.0"
   },
   "engines": {
     "node": "10.5.0"
