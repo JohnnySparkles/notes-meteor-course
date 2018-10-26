@@ -38,8 +38,3 @@ if (Meteor.isClient) {
   });
 }
 
-
-
-
-
-

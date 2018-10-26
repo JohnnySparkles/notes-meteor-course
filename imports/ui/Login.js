@@ -1,10 +1,12 @@
 // Module imports
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -17,7 +19,7 @@ export default class Login extends React.Component {
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
 
-    Meteor.loginWithPassword({email}, password, (err) => {
+    this.props.login({email}, password, (err) => {
       if (err) {
         this.setState({error: err.reason});
       }
@@ -47,4 +49,14 @@ export default class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  login: PropTypes.func.isRequired
+};
+
+export default withTracker(({}) => {
+  return {
+    login: () => Meteor.loginWithPassword()
+  };
+})(Login);
 
