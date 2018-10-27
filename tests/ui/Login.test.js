@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import {expect } from 'chai';
 import sinon from 'sinon';
-import { mount } from 'enzyme';
 import { Login } from './../../imports/ui/Login';
 import { mountRoute } from './../utils/router-wrapper';
 
@@ -31,6 +30,19 @@ if (Meteor.isClient) {
 
       expect(loginSpy.getCall(0).args[0]).to.deep.equal({ email });
       expect(loginSpy.getCall(0).args[1]).to.be.equal(password);
+    });
+
+    it('should set loginWithPassword callback errors', function() {
+      const loginSpy = sinon.fake();
+      const wrapper = mountRoute(<Login login={loginSpy}/>);
+
+      wrapper.find('form').simulate('submit');
+
+      debugger;
+      loginSpy.getCall(0).args[2]({});
+      expect(wrapper.state("error").length).to.not.be(0);
+
+      loginSpy.getCall(0).args[2]({});
     });
   });
 }
