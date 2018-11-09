@@ -25,7 +25,7 @@ Meteor.methods({
       body: '',
       userId: this.userId,
       updatedAt: moment().valueOf()
-    })
+    });
   },
   'notes.remove': function(_id) {
     if (!this.userId) {

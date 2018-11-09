@@ -38,9 +38,9 @@ if (Meteor.isClient) {
 
       wrapper.find('form').simulate('submit');
 
-      debugger;
       loginSpy.getCall(0).args[2]({});
-      expect(wrapper.state("error").length).to.not.be(0);
+      wrapper.update();
+      expect(wrapper.find(Login).at(0).state("error")).to.not.be.equal('');
 
       loginSpy.getCall(0).args[2]({});
     });
