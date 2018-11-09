@@ -5,6 +5,7 @@ import {} from './api/users.test';
 import {} from './api/notes.test';
 import {} from './ui/PrivateHeader.test';
 import {} from './ui/Login.test';
+import {} from './ui/SingUp.test';
 
 
 describe("notes", function () {
