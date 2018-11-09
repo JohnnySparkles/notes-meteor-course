@@ -21,7 +21,7 @@ export class Signup extends React.Component {
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
 
-    Accounts.createUser({email, password}, (err) => {
+    this.props.createUser({email, password}, (err) => {
       if (err) {
         this.setState({error: err.reason});
       }
@@ -57,6 +57,6 @@ Signup.propTypes = {
 
 export default withTracker(({}) => {
   return {
-    login: () => Accounts.createUser
+    createUser: () => Accounts.createUser
   }
 })(Signup);
