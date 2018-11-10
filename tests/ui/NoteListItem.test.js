@@ -11,14 +11,6 @@ import { Link } from 'react-router-dom';
 
 if ( Meteor.isClient) {
   describe('NoteListItem', () => {
-    let Session;
-
-    beforeEach(() => {
-      Session = {
-        set: sinon.fake()
-      };
-    });
-
     it('should display the title and updatedAt', () => {
       const wrapper = mountRoute(<NoteListItem note={notes[0]}/>);
 

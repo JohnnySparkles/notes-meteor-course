@@ -13,8 +13,7 @@ export const NoteList = (props) => {
     <div>
       <NoteListHeader />
       { props.notes.length ? props.notes.map((note) => {
-          let selected = note._id === props.selectedNoteId ? true : false;
-          return <NoteListItem key={note._id} note={note} selected={selected}/>;
+          return <NoteListItem key={note._id} note={note}/>;
       }) : <NoteListEmptyItem/>}
     </div>
   )
@@ -24,10 +23,15 @@ NoteList.propTypes = {
   notes: PropTypes.array.isRequired
 }
 
-export default withTracker(({}) => {
+export default withTracker((props) => {
   Meteor.subscribe('notes');
 
   return {
-    notes: Notes.find().fetch()
+    notes: Notes.find().fetch().map((note) => {
+      return {
+        ...note,
+        selected: note._id === props.selectedNoteId
+      }
+    })
   }
 })(NoteList);
