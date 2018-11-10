@@ -6,6 +6,7 @@ import {mountRoute } from '../utils/router-wrapper';
 import { NoteList } from '../../imports/ui/NoteList';
 import { NoteListItem } from '../../imports/ui/NoteListItem';
 import moment from 'moment';
+import { NoteListEmptyItem } from '../../imports/ui/NoteListEmptyItem';
 
 
 if (Meteor.isClient) {
@@ -29,6 +30,13 @@ if (Meteor.isClient) {
       const wrapper = mountRoute(<NoteList notes={notes}/>);
 
       expect(wrapper.find(NoteListItem).length).to.be.equal(2);
+      expect(wrapper.find(NoteListEmptyItem).length).to.be.equal(0);
+    });
+
+    it('should display NoteListEmptyItem', () => {
+      const wrapper = mountRoute(<NoteList notes={{}}/>);
+
+      expect(wrapper.find(NoteListEmptyItem).length).to.be.equal(1);
     });
   });
 }
