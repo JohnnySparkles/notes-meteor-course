@@ -10,7 +10,7 @@ export const notes = [
   },
   {
     _id: 'noteId2',
-    title: "Note2",
+    title: "",
     body: "Body2",
     userId: "UserId2",
     updatedAt: moment().valueOf()

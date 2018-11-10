@@ -18,7 +18,7 @@ if ( Meteor.isClient) {
     });
 
     it('should display untitled note if there is not a title', () => {
-      const wrapper = mountRoute(<NoteListItem note={{title: ''}}/>);
+      const wrapper = mountRoute(<NoteListItem note={notes[1]}/>);
 
       expect(wrapper.find('h5').text()).to.be.equal('Untitled Note');
     });
