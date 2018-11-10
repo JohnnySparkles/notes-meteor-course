@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import  PropTypes from 'prop-types';
 
 
 export const NoteListHeader = (props) => {
@@ -8,6 +9,10 @@ export const NoteListHeader = (props) => {
     <button onClick={() => {props.meteorCall('notes.insert')}}>Create Note</button>
   );
 };
+
+NoteListHeader.propTypes = {
+  meteorCall: PropTypes.func.isRequired
+}
 
 export default withTracker(({}) => {
   return {
