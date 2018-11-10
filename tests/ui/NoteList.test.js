@@ -5,29 +5,12 @@ import sinon from 'sinon';
 import {mountRoute } from '../utils/router-wrapper';
 import { NoteList } from '../../imports/ui/NoteList';
 import { NoteListItem } from '../../imports/ui/NoteListItem';
-import moment from 'moment';
 import { NoteListEmptyItem } from '../../imports/ui/NoteListEmptyItem';
+import { notes } from '../fixtures/fixtures';
 
 
 if (Meteor.isClient) {
   describe('NoteList', () => {
-    const notes = [
-      {
-        _id: 'noteId1',
-        title: "Note1",
-        body: "Body1",
-        userId: "UserId1",
-        updatedAt: moment().valueOf()
-      },
-      {
-        _id: 'noteId2',
-        title: "Note2",
-        body: "Body2",
-        userId: "UserId2",
-        updatedAt: moment().valueOf()
-      }
-    ];
-
     it('should print list of notes', () => {
       const wrapper = mountRoute(<NoteList notes={notes}/>);
 
