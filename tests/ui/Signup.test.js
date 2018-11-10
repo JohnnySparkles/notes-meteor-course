@@ -31,6 +31,20 @@ if (Meteor.isClient) {
 
       expect(spy.getCall(0).args[0]).to.be.deep.equal({email, password});
     });
+ 
+    it('should set error if short password', () => {
+      const email = 'john@test.com';
+      const password = '123           ';
+      const spy = sinon.fake();
+      const wrapper = mountRoute(<Signup createUser={spy}/>);
+
+      wrapper.ref('email').value = email;
+      wrapper.ref('password').value = password;
+      wrapper.find('form').simulate('submit');
+      wrapper.update();
+
+      expect(wrapper.state('error').length).to.be.greaterThan(0);
+    });
   });
 }
 
