@@ -27,7 +27,6 @@ export class Signup extends React.Component {
 
     this.props.createUser({email, password}, (err) => {
       if (err) {
-        debugger;
         this.setState({error: err.reason});
       }
       else {

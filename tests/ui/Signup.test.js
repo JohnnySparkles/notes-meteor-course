@@ -45,6 +45,21 @@ if (Meteor.isClient) {
 
       expect(wrapper.state('error').length).to.be.greaterThan(0);
     });
+
+    it('should set createUser callback errors', () => {
+      const spy = sinon.fake();
+      const password = 'password123';
+      const wrapper = mountRoute(<Signup createUser={spy}/>);
+
+      wrapper.ref('password').value = password;
+      wrapper.find('form').simulate('submit');
+      spy.getCall(0).args[1]({reason: 'an error'});
+
+      expect(wrapper.state('error').length).to.be.greaterThan(0);
+      
+      spy.getCall(0).args[1]();
+      expect(wrapper.state('error').length).to.be.equal(0);
+    });
   });
 }
 
