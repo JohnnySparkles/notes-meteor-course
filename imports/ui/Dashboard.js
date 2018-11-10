@@ -1,6 +1,6 @@
 import React from 'react';
 import PrivateHeader from './../ui/PrivateHeader';
-
+import NoteList from './NoteList';
 
 
 export default Link = () => {
@@ -8,7 +8,7 @@ export default Link = () => {
     <div>
       <PrivateHeader title="Dashboard"/>
       <div className="page-content">
-        Dashboard page content.
+        <NoteList />
       </div>
     </div>
   );

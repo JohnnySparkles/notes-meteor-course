@@ -56,7 +56,7 @@ Login.propTypes = {
 
 export default withTracker(({}) => {
   return {
-    login: () => Meteor.loginWithPassword()
+    login: Meteor.loginWithPassword
   };
 })(Login);
 
