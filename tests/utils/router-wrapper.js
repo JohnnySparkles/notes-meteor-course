@@ -3,7 +3,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 
 import { shape } from 'prop-types';
 
-const router = {
+export const router = {
   history: new MemoryRouter().history,
   route: {
     location: {},

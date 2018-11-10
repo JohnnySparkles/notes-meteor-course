@@ -19,7 +19,7 @@ if (Meteor.isClient) {
     });
 
     it('should display NoteListEmptyItem', () => {
-      const wrapper = mountRoute(<NoteList notes={{}}/>);
+      const wrapper = mountRoute(<NoteList notes={[]}/>);
 
       expect(wrapper.find(NoteListItem).length).to.be.equal(0);
       expect(wrapper.find(NoteListEmptyItem).length).to.be.equal(1);
