@@ -3,12 +3,12 @@ import PrivateHeader from './../ui/PrivateHeader';
 import NoteList from './NoteList';
 
 
-export default Link = () => {
+export default Dashboard = (props) => {
   return (
     <div>
       <PrivateHeader title="Dashboard"/>
       <div className="page-content">
-        <NoteList />
+        <NoteList selectedNoteId={props.match.params.id}/>
       </div>
     </div>
   );

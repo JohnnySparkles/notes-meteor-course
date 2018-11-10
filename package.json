@@ -14,7 +14,6 @@
     "babel-runtime": "^6.26.0",
     "chai": "^4.2.0",
     "history": "^4.7.2",
-    "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
