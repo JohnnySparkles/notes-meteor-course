@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import assert from "assert";
+import { expect } from 'chai';
 import {} from './enzyme-configuration.js';
 import {} from './api/users.test';
 import {} from './api/notes.test';
@@ -14,22 +14,18 @@ import {} from './ui/NoteListItem.test';
 describe("notes", function () {
   it("package.json has correct name", async function () {
     const { name } = await import("../package.json");
-    assert.strictEqual(name, "notes");
-  });
-
-  it("runs another test", async function() {
-    assert.strictEqual(true, true);
+    expect(name).to.be.equal("notes");
   });
 
   if (!Meteor.isServer) {
     it("client is not server", function () {
-      assert.strictEqual(Meteor.isServer, false);
+      expect(Meteor.isServer).to.be.equal(false);
     });
   }
 
   if (Meteor.isServer) {
     it("server is not client", function () {
-      assert.strictEqual(Meteor.isClient, false);
+      expect(Meteor.isClient).to.be.equal(false);
     });
   }
 });
