@@ -7,6 +7,7 @@ import {} from './ui/PrivateHeader.test';
 import {} from './ui/Login.test';
 import {} from './ui/Signup.test';
 import {} from './ui/NoteListHeader.test';
+import {} from './ui/NoteList.test';
 
 
 describe("notes", function () {
