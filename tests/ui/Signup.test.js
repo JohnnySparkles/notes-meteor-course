@@ -49,13 +49,14 @@ if (Meteor.isClient) {
     it('should set createUser callback errors', () => {
       const spy = sinon.fake();
       const password = 'password123';
+      const reason = 'An error';
       const wrapper = mountRoute(<Signup createUser={spy}/>);
 
       wrapper.ref('password').value = password;
       wrapper.find('form').simulate('submit');
-      spy.getCall(0).args[1]({reason: 'an error'});
+      spy.getCall(0).args[1]({reason: reason});
 
-      expect(wrapper.state('error').length).to.be.greaterThan(0);
+      expect(wrapper.state('error')).to.be.equal(reason);
       
       spy.getCall(0).args[1]();
       expect(wrapper.state('error').length).to.be.equal(0);
